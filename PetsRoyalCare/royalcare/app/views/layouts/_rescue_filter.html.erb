@@ -1,0 +1,217 @@
+
+		<div class="content container ">
+			<div class="row">
+
+				<div class=" filter-by-block md-margin-bottom-60 " id="all">
+
+					<a data-toggle="collapse" data-parent="#all" href="#filters">
+						<h1>Filtros <i class="fa fa-angle-down"></i> </h1>
+					</a>
+					<%= form_tag adoption_pets_path, :method => 'get' do  %>
+					<div id="filters" class=" collapse in">
+	          <div class="panel-group" id="accordion2">
+							<div class="panel panel-default ">
+								<div class="panel-heading">
+									<h2 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion2" href="#collapsetwo">
+											Peso
+											<i class="fa fa-angle-down"></i>
+										</a>
+									</h2>
+								</div>
+								<div id="collapsetwo" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<ul class="list-unstyled checkbox-list">
+
+
+
+	                      <li>
+	  											<label class="checkbox">
+
+	                          <% if @choose %>
+	                            <% if  @choose.include?('0,10') %>
+	                               <%= check_box_tag 'weights[]', '0,10' , value:true %>
+	                           <% else %>
+	                             <%= check_box_tag 'weights[]', '0,10' %>
+	                           <%end%>
+	                         <% else %>
+	                          <%= check_box_tag 'weights[]', '0,10' %>
+	                         <%end%>
+
+
+	  												<i></i>
+	  												0 - 10 kg
+
+	  											</label>
+	  										</li>
+
+	                      <li>
+
+	  											<label class="checkbox">
+
+	                          <% if @choose %>
+
+	                            <% if  @choose.include?('10,20') %>
+	                               <%= check_box_tag 'weights[]', '10,20' , value:true %>
+	                           <% else %>
+	                             <%= check_box_tag 'weights[]', '10,20' %>
+	                           <%end%>
+	                         <% else %>
+	                          <%= check_box_tag 'weights[]', '10,20' %>
+	                         <%end%>
+
+
+	  												<i></i>
+	  												10 - 20 kg
+
+	  											</label>
+	  										</li>
+
+
+	                      <li>
+	  											<label class="checkbox">
+
+	                          <% if @choose %>
+	                            <% if  @choose.include?('20,40') %>
+	                               <%= check_box_tag 'weights[]', '20,40' , value:true %>
+	                           <% else %>
+	                             <%= check_box_tag 'weights[]', '20,40' %>
+	                           <%end%>
+	                         <% else %>
+	                          <%= check_box_tag 'weights[]', '20,40' %>
+	                         <%end%>
+
+
+	  												<i></i>
+	  												20 - 40 kg
+
+	  											</label>
+	  										</li>
+
+	                      <li>
+	                        <label class="checkbox">
+
+	                          <% if @choose %>
+	                            <% if  @choose.include?('40,200') %>
+	                               <%= check_box_tag 'weights[]', '40,200' , value:true %>
+	                           <% else %>
+	                             <%= check_box_tag 'weights[]', '40,200' %>
+	                           <%end%>
+	                         <% else %>
+	                          <%= check_box_tag 'weights[]', '40,200' %>
+	                         <%end%>
+
+
+	                          <i></i>
+	                           40+ kg
+
+	                        </label>
+	                      </li>
+
+
+										</ul>
+									</div>
+							</div>
+						</div>
+						</div><!--/end panel group-->
+
+						<div class="panel-group" id="accordion3">
+							<div class="panel panel-default ">
+								<div class="panel-heading">
+									<h2 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion3" href="#collapse3">
+											Tamaño
+											<i class="fa fa-angle-down"></i>
+										</a>
+									</h2>
+								</div>
+								<div id="collapse3" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<ul class="list-unstyled checkbox-list">
+
+
+
+	                      <li>
+	  											<label class="checkbox">
+
+	                          <% if @breeds1 %>
+														
+	                            <% if  @breeds1.include?('Pequeño') %>
+	                               <%= check_box_tag 'breeds[]', 'Pequeño' , value:true %>
+	                           <% else %>
+	                             <%= check_box_tag 'breeds[]', 'Pequeño' %>
+	                           <%end%>
+	                         <% else %>
+	                          <%= check_box_tag 'breeds[]', 'Pequeño' %>
+	                         <%end%>
+
+
+	  												<i></i>
+	  												Pequeño
+
+	  											</label>
+	  										</li>
+
+	                      <li>
+
+	  											<label class="checkbox">
+
+	                          <% if @breeds1 %>
+
+	                            <% if  @breeds1.include?('Mediano') %>
+	                               <%= check_box_tag 'breeds[]', 'Mediano' , value:true %>
+	                           <% else %>
+	                             <%= check_box_tag 'breeds[]', 'Mediano' %>
+	                           <%end%>
+	                         <% else %>
+	                          <%= check_box_tag 'breeds[]', 'Mediano' %>
+	                         <%end%>
+
+
+	  												<i></i>
+	  												Mediano
+
+	  											</label>
+	  										</li>
+
+
+	                      <li>
+	  											<label class="checkbox">
+
+	                          <% if @breeds1 %>
+	                            <% if  @breeds1.include?('Grande') %>
+	                               <%= check_box_tag 'breeds[]', 'Grande' , value:true %>
+	                           <% else %>
+	                             <%= check_box_tag 'breeds[]', 'Grande' %>
+	                           <%end%>
+	                         <% else %>
+	                          <%= check_box_tag 'breeds[]', 'Grande' %>
+	                         <%end%>
+
+
+	  												<i></i>
+	  												Grande
+
+	  											</label>
+	  										</li>
+
+
+										</ul>
+									</div>
+							</div>
+						</div>
+					</div><!--/end panel group-->
+
+
+
+
+
+
+
+        <%= submit_tag 'Filtrar', :name => nil, class:"btn", style:"text-align:center"%>
+
+      <% end %>
+			  </div>
+			</div>
+      </div>
+    </div>

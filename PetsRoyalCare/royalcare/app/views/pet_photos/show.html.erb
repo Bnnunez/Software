@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Adoption pet:</strong>
+  <%= @pet_photo.adoption_pet %>
+</p>
+
+<%= link_to 'Edit', edit_pet_photo_path(@pet_photo) %> |
+<%= link_to 'Back', pet_photos_path %>

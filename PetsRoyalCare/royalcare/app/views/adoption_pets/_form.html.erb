@@ -1,0 +1,199 @@
+<div class="back_page">
+  <div style="padding-top:6em;">
+
+    <%= form_for @adoption_pet, html: {multipart: true} do |f| %>
+
+
+      <div class="container_form">
+        <div class="sky-form" style="min-width: 450px; max-width:700px; margin:10px; ">
+          <header> Formulario de Adopción <%= link_to 'Volver a Adopciones', adoption_pets_path, class:"btn", style:"padding-left:30%;" %></header>
+
+          <% if adoption_pet.errors.any? %>
+            <div id="error_explanation" style="word-wrap: break-word; background-color=green; border-radius:10px" >
+              <h2><%= pluralize(adoption_pet.errors.count, "error") %> prohibited this adoption_pet from being saved:</h2>
+
+              <ul>
+              <% adoption_pet.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+
+          <fieldset>
+            <header> Información <header>
+
+
+            <section>
+              <div class="input">
+                Nombre de la Mascota
+                <%= f.text_field :name, style:"width:100%"  %>
+
+              </div>
+            </section>
+
+            <section>
+              <div class="input">
+
+                Descripción de la Mascota
+
+                <%= f.text_area :description, style:"width:100%" %>
+
+              </div>
+            </section>
+
+            <section>
+              <div class="input">
+
+                Fecha de Nacimiento Aproximada <br>
+
+                <center><%= f.date_select :birthday, style:"width:100%" %></center>
+
+              </div>
+            </section>
+
+
+            <section>
+              <div class="input">
+
+                Peso de la mascota
+
+              <%= f.text_field :weight, style:"width:100%" %>
+
+              </div>
+            </section>
+
+            <section>
+              <div class="selectpicker">
+
+                Selecione tamaño de la mascota, cuando sea adulto
+                  <center>
+                <%= f.collection_select(:breed_id, @breeds, :id ,:name, :prompt =>'Seleccionar')  %>
+                  </center>
+              </div>
+            </section>
+
+            <section>
+              <div class="input">
+
+                ¿La mascota ha sido adoptada?
+                </div>
+                <center>
+                <%= f.check_box :adopted %> (Marcar si es cierto)
+              </center>
+
+            </section>
+
+
+
+
+
+            <section>
+              <div class="input-file">
+                Imagen principal de la mascota
+                <center>
+                  <%= f.file_field :image, style:"border: 1px solid; padding:2px; ",class:"button-secondary"%> </center>
+
+              </div>
+            </section>
+
+
+            <section>
+              <div class="input-file">
+                Imagen secundaria de la mascota
+                <center>
+                   <%= file_field_tag "photos[]", type: :file, style:"border: 1px solid; padding:2px; " %>
+                </center>
+
+              </div>
+            </section>
+
+            <section>
+              <div class="input-file">
+                Tercera imagen de la mascota
+                <center>
+                   <%= file_field_tag "photos[]", type: :file, style:"border: 1px solid; padding:2px; " %>
+                </center>
+
+              </div>
+            </section>
+
+
+
+            <section>
+              <div class="input">
+
+                ¿La mascota ha sido esterilizada?
+                </div>
+                <center>
+                <%= f.check_box :sterilized %> (Marcar si es cierto)
+              </center>
+
+            </section>
+
+            <section>
+              <div class="input">
+
+                ¿Las vacunas estan al día?
+                </div>
+                <center>
+                <%= f.check_box :vaccinated %> (Marcar si es cierto)
+              </center>
+
+            </section>
+
+            <section>
+              <div class="input">
+
+                ¿Puede ser adoptada por personas que vivan en departamento?
+                </div>
+                <center>
+                <%= f.check_box :depto %> (Marcar si es cierto)
+              </center>
+
+            </section>
+
+            <section>
+              <div class="input">
+
+                ¿Puede ser adoptada por personas que vivan en casa?
+                </div>
+                <center>
+                <%= f.check_box :house %> (Marcar si es cierto)
+              </center>
+
+            </section>
+
+            <section>
+              <div class="input">
+
+                ¿Se relaciona bien con otros perros?
+                </div>
+                <center>
+                <%= f.check_box :other_dog %> (Marcar si es cierto)
+              </center>
+
+            </section>
+
+          </fieldset>
+
+
+
+
+        <footer class="text-center">
+          <%= f.submit "Crear", class:"btn" %>
+
+
+
+        </footer>
+      </div>
+
+        </div>
+      </div>
+
+      <%end%>
+
+
+  </div>
+</div>

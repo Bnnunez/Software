@@ -1,0 +1,133 @@
+/*Footer-v2
+------------------------------------*/
+.footer-v2{
+	position: relative ;
+	bottom: 0;
+	width:100%;
+	margin:0;
+
+
+}
+.footer-v2 .footer-ben {
+	padding: 40px 0;
+	background: #F7F7F7;
+	border-top: 3px solid #eee;
+	min-width: 1100px;
+
+
+
+}
+
+.footer-v2 .footer-ben p {
+	color: #555;
+}
+
+.footer-v2 .headline h2 {
+	color: #585f69;
+}
+
+/*Footer subscribe*/
+.footer-v2 .footer-subscribe {
+	width: 100%;
+}
+
+/*Link List*/
+.footer-v2 .link-list li {
+	border-top: solid 1px #eee;
+}
+
+.footer-v2 .link-list a {
+	color: #555;
+}
+
+.footer-v2 address {
+	color: #555;
+	line-height: 23px;
+}
+
+.footer-v2 address i {
+	min-width: 20px;
+	margin-right: 5px;
+	text-align: center;
+}
+
+/*Copyright*/
+.footer-v2 .copyright {
+	border-top: none;
+	background: #eee;
+	padding: 20px 0 15px;
+	min-width: 1100px;
+}
+
+.footer-v2 .copyright p {
+	color: #555;
+	margin-bottom: 0;
+}
+
+.social_facebook {background: url(facebook.png) no-repeat;}
+.social_twitter {background: url(twitter.png) no-repeat;}
+.social_instagram {background: url(instagram.png) no-repeat;}
+
+.headline {
+	display: block;
+	margin: 10px 0 25px 0;
+	border-bottom: 1px dotted #e4e9f0;
+}
+
+.headline h2 {
+	font-size: 22px;
+}
+
+.headline h2,
+.headline h3,
+.headline h4 {
+	margin: 0 0 -2px 0;
+	padding-bottom: 5px;
+	display: inline-block;
+	border-bottom: 2px solid #72c02c;
+}
+
+.headline-md {
+	margin-bottom: 15px;
+}
+
+.headline-md h2 {
+	font-size: 21px;
+}
+
+.social-icons {
+	margin: 0;
+	padding: 0;
+}
+
+.social-icons li {
+	list-style: none;
+	margin-right: 3px;
+	margin-bottom: 5px;
+	text-indent: -9999px;
+	display: inline-block;
+}
+
+.social-icons li a, a.social-icon {
+	width: 28px;
+	height: 28px;
+	border-radius:50%;
+	display: block;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	transition: all 0.3s ease-in-out;
+}
+
+.social-icons li:hover a {
+	 background-position: 0 -38px;
+}
+
+.social-icons-color li a {
+	opacity: 0.7;
+	background-position: 0 -38px !important;
+	-webkit-backface-visibility: hidden; /*For Chrome*/
+}
+
+.social-icons-color li a:hover {
+	opacity: 1;
+}

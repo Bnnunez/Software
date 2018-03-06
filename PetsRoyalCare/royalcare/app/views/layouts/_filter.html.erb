@@ -1,0 +1,65 @@
+
+		<div class="content container ">
+			<div class="row">
+
+				<div class=" filter-by-block md-margin-bottom-60 " id="all">
+
+					<a data-toggle="collapse" data-parent="#all" href="#filters">
+						<h1>Filtros <i class="fa fa-angle-down"></i> </h1>
+					</a>
+					<%= form_tag products_path, :method => 'get' do  %>
+					<div id="filters" class=" collapse in">
+	          <div class="panel-group" id="accordion2">
+							<div class="panel panel-default ">
+								<div class="panel-heading">
+									<h2 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion2" href="#collapsetwo">
+											Categorias
+											<i class="fa fa-angle-down"></i>
+										</a>
+									</h2>
+								</div>
+								<div id="collapsetwo" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<ul class="list-unstyled checkbox-list">
+
+											<% @categories.each do |category| %>
+
+											<li>
+												<label class="checkbox">
+
+													<% if @choose %>
+														<% if  @choose.include?(category.name) %>
+															 <%= check_box_tag 'categories[]', category.name, value:true %>
+													 <% else %>
+														 <%= check_box_tag 'categories[]', category.name %>
+													 <%end%>
+												 <% else %>
+													<%= check_box_tag 'categories[]', category.name %>
+												 <%end%>
+
+
+													<i></i>
+													<%= category.name%>
+													<small><a href="#">(<%= category.products.where(visible: true).count %>)</a></small>
+												</label>
+											</li>
+
+
+
+
+											<% end %>
+
+										</ul>
+									</div>
+							</div>
+						</div>
+						</div><!--/end panel group-->
+
+        <%= submit_tag 'Filtrar', :name => nil, class:"btn", style:"text-align:center"%>
+
+      <% end %>
+			  </div>
+			</div>
+      </div>
+    </div>

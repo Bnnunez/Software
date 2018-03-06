@@ -1,0 +1,27 @@
+                     List of relations
+ Schema |             Name              |   Type   | Owner 
+--------+-------------------------------+----------+-------
+ public | adoption_pets                 | table    | benja
+ public | adoption_pets_id_seq          | sequence | benja
+ public | ar_internal_metadata          | table    | benja
+ public | breeds                        | table    | benja
+ public | breeds_id_seq                 | sequence | benja
+ public | categories                    | table    | benja
+ public | categories_id_seq             | sequence | benja
+ public | colors                        | table    | benja
+ public | colors_id_seq                 | sequence | benja
+ public | pet_photos                    | table    | benja
+ public | pet_photos_id_seq             | sequence | benja
+ public | product_categories            | table    | benja
+ public | product_categories_id_seq     | sequence | benja
+ public | product_colors                | table    | benja
+ public | product_colors_id_seq         | sequence | benja
+ public | product_specifications        | table    | benja
+ public | product_specifications_id_seq | sequence | benja
+ public | products                      | table    | benja
+ public | products_id_seq               | sequence | benja
+ public | schema_migrations             | table    | benja
+ public | users                         | table    | benja
+ public | users_id_seq                  | sequence | benja
+(22 rows)
+

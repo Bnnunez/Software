@@ -1,0 +1,173 @@
+<style>
+.container{
+	width:80%;
+}
+img {
+	width:100%;
+	height:680px;
+}
+.images{
+	height:auto;
+	width: auto;
+	max-width: 150px;
+	max-height: 150px;
+}
+
+</style>
+		<!--=== Shop Product ===-->
+		<div class="shop-product" style= "margin-top:6em; ">
+			<!-- Breadcrumbs v5 -->
+      <div class="container">
+				<ul class="breadcrumb-v5">
+					<li><a href="<%= home_index_path %>"><i class="fa fa-home"></i></a></li>
+					<li><a href="<%= products_path %>">Productos</a></li>
+					<li class="active">New</li>
+				</ul>
+			</div>
+
+			<div class="container" >
+				<div class="row">
+					<div class="col-md-6">
+						<div class="product-slider-container">
+						  <div class="product-slides product-fade">
+						    <img src="<%= @product.image.url%>" onload="currentSlide(1)">
+						  </div>
+
+							<% @product.product_photos.each do |photo1| %>
+							  <div class="product-slides product-fade">
+							    <img src="<%= photo1.photo.url%>" >
+							  </div>
+							<% end %>
+
+							<a class="product-prev" onclick="plusSlides(-1)">&#10094;</a>
+						  <a class="product-next" onclick="plusSlides(1)">&#10095;</a>
+						</div>
+						<br>
+						<div style="text-align:center">
+							<div id:"content_img">
+								<img class="thumbnail images" src="<%= @product.image.url(:thumb)%>" onclick="currentSlide(1)" style="display: -webkit-inline-box;">
+								<%-cont_photo=2%>
+								<% @product.product_photos.each do |photo1| %>
+								  <img class="thumbnail images" src="<%= photo1.photo.url(:thumb)%>" onclick="currentSlide(<%=cont_photo%>)" style="display: -webkit-inline-box;">
+									<%-cont_photo += 1%>
+								<% end %>
+
+						 </div>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="shop-product-heading">
+							<h2><%= @product.name %></h2>
+
+						</div><!--/end shop product social-->
+
+
+						<p style="word-wrap: break-word;"><%= @product.description %></p><br>
+
+						<div class="tab-v6">
+								<div class="tab-content list-inline shop-product-prices margin-bottom-30">
+									<% contador = 0 %>
+										<% @specifications.each do |specification| %>
+											<% if contador ==0 %>
+												<div class="tab-pane fade in active" id="<%= specification.size %>">
+													<% contador = 1 %>
+											<%else%>
+												<div class="tab-pane" id="<%= specification.size %>">
+											<%end%>
+											<li class="shop-blue" id="<%= specification.size %>"> <%= number_to_currency(specification.price, precision:0, delimiter:".") %></li>
+											</div>
+
+										<%end%>
+								</div>
+
+								<h3 class="shop-product-title">Tamaños</h3>
+								<ul class="list-inline product-size margin-bottom-30" role="tablist">
+									<% contador = 0 %>
+									<% @specifications.each do |specification| %>
+
+									<li >
+										<a href="#<%= specification.size %>" role="tab" data-toggle="tab">
+											<input type="radio" id="size-<%= contador%>" name="size">
+											<label for="size-<%= contador%>" >  <%= specification.size %></label>
+										</a>
+									</li>
+									<% contador += 1 %>
+									<%end%>
+								</ul><!--/end product size-->
+						</div>
+						<!--/end product size-->
+
+						<h3 class="shop-product-title">Color</h3>
+						<ul class="list-inline product-color margin-bottom-30">
+              <%- contador = 0%>
+              <% @product.colors.each do |color| %>
+
+                <li>
+  								<input type="radio" id="color-<%=contador%>" name="color" checked>
+  								<label class="<%= color.name%>" for="color-<%=contador%>"></label>
+  							</li>
+                <% contador += 1 %>
+              <%end%>
+
+						</ul><!--/end product color-->
+
+						<h3 class="shop-product-title">Cantidad</h3>
+						<div class="margin-bottom-40">
+							<%= form_tag order_items_path do %>
+								<%= hidden_field_tag :product_id, @product.id %>
+								<%= number_field_tag :quantity, 1 %>
+        				<%= submit_tag "Add to Cart" %>
+      				<% end %>
+							
+							<form name="quantity" class="product-quantity sm-margin-bottom-20">
+								<button type='button' class="quantity-button" name='subtract' onclick='javascript: subtractQty();' value='-'>-</button>
+								<input type='text' class="quantity-field" name='qty' value="1" id='qty'/>
+								<button type='button' class="quantity-button" name='add' onclick='javascript: document.getElementById("qty").value++;' value='+'>+</button>
+							</form>
+
+							<button type="submit" class="btn-u btn-u-sea-shop btn-u-lg" > <b> Añadir al Carro  </b><i class="fa fa-shopping-cart animated" ></i></button>
+
+						</div><!--/end product quantity-->
+
+						<ul class="list-inline add-to-wishlist add-to-wishlist-brd">
+
+						</ul>
+						<p class="wishlist-category"><strong>Categorias:</strong>
+              <% contador = 1 %>
+              <% @product.categories.each do |category| %>
+
+              <% if contador != @product.categories.count %>
+                <a href="#">  <%= category.name%></a>,
+              <% else%>
+                <a href="#">  <%= category.name%></a>
+              <%end%>
+              <% contador += 1 %>
+              <%end%>
+            </p>
+					</div>
+				</div><!--/end row-->
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+					<!-- End Description -->
+
+					<!-- Reviews -->
+
+		</div><!--/end container-->
+	</div>
+		<!--
+		<!--=== End Shop Product ===-->
+
+		<!--=== Content Medium ===-->
+		<%=render 'layouts/despacho' %>
+			<!--=== End Product Service ===-->

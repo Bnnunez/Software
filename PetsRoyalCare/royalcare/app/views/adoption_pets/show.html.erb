@@ -1,0 +1,130 @@
+<style>
+p{
+  margin:0 0 5px;
+  width: 90%;
+  font-size: 20px;
+  font-family: sans-serif Verdana;
+  word-wrap: break-word;
+}
+.col-md-7, .col-md-5{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: -webkit-inline-box;
+  margin-left: auto;
+  margin-right: auto;
+  word-wrap: break-word;
+}
+
+</style>
+<div class="back_page">
+  <div style="padding-top:6em">
+  </div>
+<div class="container_form"  style= "max-width:1020px; min-width:670px">
+
+  <div class="col-md-10" style="margin-left:8.333%; margin-right:8.333%; ">
+    <h1> <%= @adoption_pet.name %> </h1>
+    <div class="row " style="background:rgba(229, 228, 226,0.3); min-height:310px;">
+      <div class="col-md-7">
+        <p>
+          <strong>Nombre:</strong>
+          <%= @adoption_pet.name %> <br>
+
+
+
+          <strong>Edad (aprox.):</strong>
+          <%= @adoption_pet.birthday %><br>
+
+
+
+          <strong>Peso:</strong>
+          <%= @adoption_pet.weight %> Kg <br>
+
+          <strong>Tamaño estimado (etapa adulta):</strong>
+          <%= @size.name %>  <br>
+        </p>
+      </div>
+
+      <div class="col-md-5" style="right:0; position:absolute;">
+
+        <%= image_tag @adoption_pet.image.url(:medium)%>
+
+      </div>
+    </div>
+
+    <div class="row" style="background:rgba(209, 208, 206,0.25); min-height:310px; ">
+      <div class="col-md-5" >
+        <%= image_tag @adoption_pet.pet_photos.first().photo.url(:medium)%>
+      </div>
+
+      <div class="col-md-7" >
+        <p>
+        <%= @adoption_pet.description %> </p>
+      </div>
+
+
+    </div>
+
+    <div class="row" style="background:rgba(229, 228, 226,0.3); min-height:310px;">
+      <div class="col-md-7" >
+        <p>
+
+          <strong>Estirilizado:</strong>
+          <%- if  @adoption_pet.sterilized %>
+            Si
+          <%- else %>
+            No
+          <%end%>
+          <br>
+
+
+          <strong>Vacunado:</strong>
+
+          <%- if  @adoption_pet.vaccinated %>
+            Si
+          <%- else %>
+            No
+          <%end%>
+          <br>
+
+
+
+          <strong>Se relaciona con otros perros:</strong>
+          <%- if  @adoption_pet.other_dog %>
+            Si
+          <%- else %>
+            No
+          <%end%>
+          <br>
+
+          <strong>Para Departamento:</strong>
+          <%- if  @adoption_pet.depto %>
+            Si
+          <%- else %>
+            No
+          <%end%>
+          <br>
+
+          <strong>Para Casa:</strong>
+          <%- if  @adoption_pet.house %>
+            Si
+          <%- else %>
+            No
+          <%end%>
+          <br>
+
+      </p>
+      </div>
+
+      <div class="col-md-5" style="right:0; position:absolute; padding:auto;">
+
+        <%= image_tag @adoption_pet.pet_photos.last().photo.url(:medium)%>
+
+      </div>
+    </div>
+  </div>
+
+  <%= link_to 'Back', adoption_pets_path %>
+</div>
+
+
+</div>

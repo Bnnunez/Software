@@ -1,0 +1,111 @@
+<div class="back_page">
+  <div style="padding-top:6em;">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+      <div class="container_form">
+        <div class="sky-form" style="min-width: 450px; max-width:700px; margin:10px; ">
+          <header> Formulario de Registro </header>
+          <%= devise_error_messages! %>
+          <fieldset>
+            <header> Usuario <header>
+            <section>
+              <div class="input">
+
+                <i class="icon-append fa fa-user"></i>
+                <%= f.text_field :first_name, placeholder: "Nombre" %>
+                <b class="tooltip tooltip-bottom-right">Para información de contacto</b>
+              </div>
+            </section>
+
+            <section>
+              <div class="input">
+
+                <i class="icon-append fa fa-user"></i>
+                <%= f.text_field :last_name, placeholder: "Apellidos" %>
+                <b class="tooltip tooltip-bottom-right">Para información de contacto</b>
+              </div>
+            </section>
+
+
+            <section>
+              <div class="input">
+
+                <i class="icon-append fa fa-envelope"></i>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+                <b class="tooltip tooltip-bottom-right">Valido para verificar cuenta</b>
+              </div>
+            </section>
+
+            <section>
+              <div class="input">
+
+                <i class="icon-append fa fa-lock"></i>
+                <%- place = 'Contraseña ' %>
+                <% if @minimum_password_length %>
+                  <%- place = 'Contraseña (mínimo '+ @minimum_password_length.to_s + ' caracteres)' %>
+                <% end %>
+                <%= f.password_field :password, autocomplete: "off", placeholder: place %>
+                <b class="tooltip tooltip-bottom-right">Valido para verificar cuenta</b>
+              </div>
+            </section>
+
+            <section>
+              <div class="input">
+
+                <i class="icon-append fa fa-lock"></i>
+                <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmar contraseña" %>
+
+                <b class="tooltip tooltip-bottom-right">Valido para verificar cuenta</b>
+              </div>
+            </section>
+          </fieldset>
+
+          <fieldset>
+
+            <a data-toggle="collapse" data-parent="#all" href="#filters">
+              <header> Dirección de despacho (Opcional) <i class="fa fa-angle-down"></i><header>
+            </a>
+
+
+            <div id="filters" class=" collapse">
+                <section>
+                  <div class="input">
+                    <i class="icon-append fa fa-home"></i>
+                    <%= f.text_field :address, placeholder: "Dirección " %>
+                    <b class="tooltip tooltip-bottom-right">Necesario para realizar entregas</b>
+                  </div>
+                </section>
+
+                <section>
+                  <div class="input">
+
+                    <i class="icon-append fa fa-home"></i>
+                    <%= f.text_field :city, placeholder: "Ciudad" %>
+                    <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
+                  </div>
+                </section>
+
+                <section>
+                  <div class="input">
+
+                    <i class="icon-append fa fa-home"></i>
+                    <%= f.text_field :comuna, placeholder: "Comuna" %>
+                    <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
+                  </div>
+                </section>
+            </fieldset>
+
+
+
+        <footer class="text-center">
+          <%= f.submit "Registrarse", class:"btn" %>
+        </footer>
+        </div>
+        </div>
+      </div>
+
+      <%end%>
+
+
+  </div>
+</div>

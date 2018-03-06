@@ -1,0 +1,51 @@
+
+
+<div class="back_page">
+  <div style="padding-top:6em;">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+      <div class="container_form" style="min-width: 370px; max-width:400px;">
+        <div class="sky-form" style="min-width: 350px; max-width:380px; margin:10px; ">
+          <header> Bienvenido!
+          <header>
+            <%= devise_error_messages! %>
+            <fieldset>
+
+
+            <section>
+              <div class="input">
+
+                <i class="icon-append fa fa-envelope"></i>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Correo electrónico" %>
+
+
+              </div>
+            </section>
+
+            <section>
+              <div class="input">
+
+                <i class="icon-append fa fa-lock"></i>
+
+                <%= f.password_field :password, autocomplete: "off", placeholder: 'Contraseña' %>
+              </div>
+            </section>
+
+            <%= link_to "¿Olvidó su contraseña?", new_password_path(resource_name),style:"color:blue; padding-left:5%;font-size:14px"%>
+          </fieldset>
+
+
+
+        <footer class="text-center">
+          <%= f.submit "Conectarse", class:"btn" %>
+
+        </footer>
+        </div>
+        </div>
+      </div>
+
+      <%end%>
+
+
+  </div>
+</div>

@@ -1,0 +1,60 @@
+
+<div class="back_page">
+  <div style="padding-top:6em;">
+
+    <%= form_for(category) do |f| %>
+
+
+      <div class="container_form">
+        <div class="sky-form" style="min-width: 450px; max-width:700px; margin:10px; ">
+          <header> Formulario de Categoria </header>
+
+          <% if category.errors.any? %>
+            <div id="error_explanation" style="word-wrap: break-word; background-color=green; border-radius:10px" >>
+              <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+              <ul>
+              <% category.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+
+          <fieldset>
+            <header> Información <header>
+
+
+            <section>
+              <div class="input">
+                Nombre de la categoria (Usar mayúscula inicial)
+                <%= f.text_field :name, style:"width:100%"  %>
+
+
+              </div>
+            </section>
+
+
+
+          </fieldset>
+
+
+
+
+        <footer class="text-center">
+          <%= f.submit "Crear", class:"btn" %>
+
+
+
+        </footer>
+      </div>
+
+        </div>
+      </div>
+
+      <%end%>
+
+
+  </div>
+</div>

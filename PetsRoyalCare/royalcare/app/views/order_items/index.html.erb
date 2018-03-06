@@ -1,0 +1,30 @@
+
+
+<h1>Carro de Compras</h1> <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Quantity</th>
+
+
+      <th ></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |order_item| %>
+
+      <tr>
+        <td><%= order_item.product.name %></td>
+        <td><%= order_item.price %></td>
+        <td><%= order_item.quantity %></td>
+        <td><%= link_to 'Destroy', order_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

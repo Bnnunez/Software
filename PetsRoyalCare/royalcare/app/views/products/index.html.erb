@@ -1,0 +1,88 @@
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Permanent+Marker" >
+<link href="//fonts.googleapis.com/css?family=Bree+Serif" type="text/css" rel="stylesheet">
+<style>
+	.container1{
+		width:90%;
+		margin-left: 10%;
+		margin-right: 30px;
+		margin-top: 6em;
+	}
+	img {
+		width:100%;
+	  border-radius: 100%;
+		margin-top: 10px;
+	}
+	p {
+		color: #999;
+	  text-align: center;
+	  margin-bottom: 2px;
+		font-family: "Bree Serif";
+		font-size: 22px;
+	}
+	.price {
+		color: #4AA02C;
+	  text-align: center;
+	}
+
+	.price1{
+		color:green;
+	}
+
+	.product_item {
+
+	  background: #fff;
+	  border: 1px solid #ccc;
+	  padding: 10px;
+	  position: relative;
+		margin-right: 3%;
+	}
+
+
+
+</style>
+<div class="container1 " >
+	<div class="row">
+		<div class="col-md-2">
+
+			<%= render 'layouts/filter' %>
+		</div>
+
+		<div class="col-md-8">
+			<div class="heading heading-v1 margin-bottom-20">
+		  	<h2 style="font-family: Permanent Marker">Tienda Pet's RoyalCare</h2>
+			</div>
+		  <% count = 0 %>
+		  <div class="row">
+		  <% @products.distinct.each do |product| %>
+		      <div class="col-md-3 text-center product_item" style="margin-bottom:80px;">
+						<div class="product_sale">
+        			<p >Agotado </p>
+      			</div>
+		        <a href= "<%= product_path(product) %>" target="_blank">
+		          <%= image_tag product.image.url(:medium), style: "width:250px; height:250px;"%>
+		          <p style:="font-family:Open Sans"> <strong>Marca </strong></p>
+		          <p style="color:#687074"><%= product.name %></p>
+		          <p> Descripcion corta? </p>
+
+		          <%- specifications = ProductSpecification.where(product: product) %>
+		          <%- less = specifications.minimum(:price)%>
+		          <%- max = specifications.maximum(:price)%>
+		          <p class="price" >Disponible entre:</p>
+							<p class="price1" >
+		          <%= number_to_currency(less, precision:0, delimiter:".") %> -
+		          <%= number_to_currency(max, precision:0, delimiter:".") %>
+		          </p>
+		        </a>
+		      </div>
+		      <% count += 1 %>
+		      <% if count == 3%>
+		        </div>
+		        <% count = 0 %>
+		        <div class="row">
+		      <%end%>
+		  <% end %>
+		  </div>
+		</div>
+	</div>
+</div>

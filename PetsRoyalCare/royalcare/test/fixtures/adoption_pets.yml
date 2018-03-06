@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  birthday: 2018-01-03
+  adopted: false
+  weight: 1.5
+
+two:
+  name: MyString
+  description: MyText
+  birthday: 2018-01-03
+  adopted: false
+  weight: 1.5

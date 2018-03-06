@@ -1,0 +1,14 @@
+.img-arnes{
+
+  width: 550px;
+  height: 580px;
+  margin-top: 80px;
+
+  border-radius: 80px;
+  background: url(arnes_perro_agua_horizonte.jpg) no-repeat bottom center scroll;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}

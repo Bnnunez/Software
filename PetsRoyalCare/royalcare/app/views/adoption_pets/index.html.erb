@@ -1,0 +1,183 @@
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Permanent+Marker" >
+<link href="//fonts.googleapis.com/css?family=Bree+Serif" type="text/css" rel="stylesheet">
+<style>
+	.container1{
+		width:90%;
+		margin-left: 5%;
+		margin-right: 30px;
+		margin-top: 6em;
+	}
+	img {
+		width:100%;
+	  border-radius: 100%;
+		margin-top: 10px;
+	}
+	p {
+		color: #999;
+	  text-align: center;
+	  margin-bottom: 2px;
+		font-family: "Bree Serif";
+		font-size: 22px;
+		word-wrap: break-word;
+	}
+
+
+	.product_item {
+
+	  background: #fff;
+	  border: 1px solid #ccc;
+	  padding: 10px;
+	  position: relative;
+		margin-right: 3%;
+	}
+
+
+
+</style>
+<div class="container1" >
+	<div class="row">
+		<div class="col-md-3">
+			<%= render 'layouts/rescue_filter'%>
+		</div>
+
+		<div class="col-md-9">
+			<h1 style="font-family: Permanent Marker">Refugio Pet's RoyalCare</h1>
+			<% if @antiguos.count > 0 %>
+				<div class="heading heading-v1 margin-bottom-20">
+			  	<h2 style="font-family: Permanent Marker">Buscando hogar</h2>
+				</div>
+
+
+						  <% count = 0 %>
+
+						  <div class="row">
+						  <% @antiguos.each do |adoption_pet| %>
+						      <div class="col-md-2 text-center product_item" style="margin-bottom:80px;">
+
+
+				            <% if (adoption_pet.age/12).to_i == 0 %>
+				              <div class="product_sale">
+				          			<p>  <strong>Cachorro </strong></p>
+				        			</div>
+
+
+				            <%end%>
+
+				              <a href= "<%= adoption_pet_path(adoption_pet) %>" target="_blank">
+				                <%= image_tag adoption_pet.image.url(:medium)%>
+				  		          <p style="color:#687074">  <strong> <%= adoption_pet.name %> </strong></p>
+				  		          
+				                <p> <%= adoption_pet.weight%> kg. </p>
+
+
+						        </a>
+						      </div>
+						      <% count += 1 %>
+						      <% if count == 5%>
+						        </div>
+						        <% count = 0 %>
+						        <div class="row">
+						      <%end%>
+						  <% end %>
+						</div>
+						<%end%>
+					<% if @jovenes.count > 0 %>
+					<div class="heading heading-v1 margin-bottom-20">
+				  	<h2 style="font-family: Permanent Marker">Los más pequeños</h2>
+					</div>
+
+
+							  <% count = 0 %>
+
+							  <div class="row">
+							  <% @jovenes.each do |adoption_pet| %>
+							      <div class="col-md-2 text-center product_item" style="margin-bottom:80px;">
+
+
+
+
+
+					            <% if (adoption_pet.age/12).to_i == 0 %>
+					              <div class="product_sale">
+					          			<p>  <strong>Cachorro </strong></p>
+					        			</div>
+
+
+					            <%end%>
+
+					              <a href= "<%= adoption_pet_path(adoption_pet) %>" target="_blank">
+					                <%= image_tag adoption_pet.image.url(:medium)%>
+					  		          <p style="color:#687074">  <strong> <%= adoption_pet.name %> </strong></p>
+					  		          <p> <%= adoption_pet.description %> </p>
+					                <p> <%= adoption_pet.weight%> kg. </p>
+
+
+							        </a>
+							      </div>
+							      <% count += 1 %>
+							      <% if count == 5%>
+							        </div>
+							        <% count = 0 %>
+							        <div class="row">
+							      <%end%>
+							  <% end %>
+							</div>
+			<% end %>
+			<% if @todos.count > 0 %>
+						<div class="heading heading-v1 margin-bottom-20">
+					  	<h2 style="font-family: Permanent Marker">Todos</h2>
+						</div>
+
+
+			  <% count = 0 %>
+
+			  <div class="row">
+			  <% @todos.each do |adoption_pet| %>
+
+			      <div class="col-md-2 text-center product_item" style="margin-bottom:80px;">
+
+	    			<% if (adoption_pet.age/12).to_i == 0 %>
+	              <div class="product_sale">
+	          			<p>  <strong>Cachorro </strong></p>
+	        			</div>
+
+
+	            <%end%>
+
+
+
+
+	              <a href= "<%= adoption_pet_path(adoption_pet) %>" target="_blank">
+	                <%= image_tag adoption_pet.image.url(:medium)%>
+	  		          <p style="color:#687074">  <strong> <%= adoption_pet.name %> </strong></p>
+	  		          <p> <%= adoption_pet.description %> </p>
+	                <p> <%= adoption_pet.weight%> kg. </p>
+
+
+			        </a>
+			      </div>
+			      <% count += 1 %>
+			      <% if count == 5%>
+			        </div>
+			        <% count = 0 %>
+			        <div class="row">
+			      <%end%>
+			  <% end %>
+
+
+		  </div>
+		<% end %>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+<br>
+
+<%= link_to 'New Adoption Pet', new_adoption_pet_path %>
